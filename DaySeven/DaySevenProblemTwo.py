@@ -5,7 +5,7 @@ def permutation_total_matches(goal, calculations, total, totals):
     if not calculations:
         if total == goal:
             totals.append(total)
-    else:
+    elif total < goal:
         permutation_total_matches(goal, calculations[1:], total + calculations[0], totals)
         permutation_total_matches(goal, calculations[1:], calculations[0] if total == 0 else calculations[0] * total, totals)
         permutation_total_matches(goal, calculations[1:], calculations[0] if total == 0 else int(str(total) + str(calculations[0])), totals)
